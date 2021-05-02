@@ -16,8 +16,8 @@ func main() {
 
   // Routes
   e.GET("/", hello)
-  e.GET("/bandung", bandung)
-  e.GET("/jakarta", jakarta)
+  e.GET("/bdg/bandung", bandung)
+  e.GET("/jkt/jakarta", jakarta)
 
   // Start server
   e.Logger.Fatal(e.Start(":8000"))
