@@ -17,9 +17,10 @@ func main() {
   // Routes
   e.GET("/", hello)
   e.GET("/bandung", bandung)
+  e.GET("/jakarta", jakarta)
 
   // Start server
-  e.Logger.Fatal(e.Start(":8080"))
+  e.Logger.Fatal(e.Start(":8000"))
 }
 
 // Handler
@@ -30,4 +31,8 @@ func hello(c echo.Context) error {
 
 func bandung(c echo.Context) error {
   return c.String(http.StatusOK, "Hello, Bandung!")
+}
+
+func jakarta(c echo.Context) error {
+  return c.String(http.StatusOK, "Hello, jakarta!")
 }
