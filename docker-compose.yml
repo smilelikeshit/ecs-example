@@ -5,3 +5,6 @@ services:
       context: .
       dockerfile: Dockerfile 
     network_mode: host
+    environment: 
+      HELLO: "bandung"
+      PORT: ":8000"

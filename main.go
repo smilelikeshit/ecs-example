@@ -4,11 +4,14 @@ import (
   "net/http"
   "github.com/labstack/echo/v4"
   "github.com/labstack/echo/v4/middleware"
+  "os"
+
 )
 
 func main() {
   // Echo instance
   e := echo.New()
+
 
   // Middleware
   e.Use(middleware.Logger())
@@ -16,23 +19,18 @@ func main() {
 
   // Routes
   e.GET("/", hello)
-  e.GET("/bdg/bandung", bandung)
-  e.GET("/jkt/jakarta", jakarta)
+  
 
   // Start server
-  e.Logger.Fatal(e.Start(":8000"))
+  e.Logger.Fatal(e.Start(os.Getenv("PORT")))
 }
 
 // Handler
 func hello(c echo.Context) error {
-  return c.String(http.StatusOK, "Hello, World!")
+  
+  return c.JSON(http.StatusOK, map[string]string{
+    "message" : os.Getenv("HELLO"),
+  })
+  
 }
 
-
-func bandung(c echo.Context) error {
-  return c.String(http.StatusOK, "Hello, Bandung!")
-}
-
-func jakarta(c echo.Context) error {
-  return c.String(http.StatusOK, "Hello, jakarta!")
-}
