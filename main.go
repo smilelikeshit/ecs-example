@@ -10,6 +10,8 @@ import (
 
 func main() {
   // Echo instance
+
+  listen := ":"
   e := echo.New()
 
 
@@ -22,7 +24,7 @@ func main() {
   
 
   // Start server
-  e.Logger.Fatal(e.Start(os.Getenv("PORT")))
+  e.Logger.Fatal(e.Start(listen + os.Getenv("PORT")))
 }
 
 // Handler
